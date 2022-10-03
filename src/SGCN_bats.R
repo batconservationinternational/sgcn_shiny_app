@@ -1,8 +1,11 @@
 library(tidyverse)
 library(writexl)
 library(here)
+library(spData)
 
 sp <- read_csv(here::here("data", "bat_species.csv")) %>% select(Genus, Species) %>% unite("bat", 1:2, remove=T, sep = " ")
+
+states <- us_states["NAME"]
 
 c_names <- c("sci_name", "common_name", "num_2005_states","states_2005", "num_2015_states","states_2015", "tax_group")
 
@@ -24,6 +27,9 @@ sgcn_long$yesno <- if_else(is.na(sgcn_long$states_2015) | sgcn_long$states_2015=
 
 data <- sgcn_long %>% pivot_wider(names_from=sci_name, values_from = yesno, values_fill=0) %>% 
   drop_na(states_2015) %>% arrange(states_2015)
+
+#add in any states that don't have any SGCN
+data <- data %>% add_row(states_2015 = setdiff(states[[1]], data$states_2015)) %>% replace(is.na(.), 0)
 
 sheets <- list("state list for each species" = sgcn, 
                "species list for each state" = state_sp_list,

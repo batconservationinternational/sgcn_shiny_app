@@ -5,10 +5,10 @@ account: batcon
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7151474
-bundleId: 6349147
+bundleId: 6365584
 url: https://batcon.shinyapps.io/species_of_greatest_conservation_need/
-when: 1664406362.01279
-lastSyncTime: 1664406362.0128
+when: 1664838387.50252
+lastSyncTime: 1664838387.50253
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: bat_species.csv|SGCN_bats.R|SGCN_data.csv
+ignoredFiles: data/SGCN_info.xlsx|README.md

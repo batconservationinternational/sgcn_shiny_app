@@ -26,7 +26,6 @@ ui <- fluidPage(
                     options = list(`actions-box` = TRUE), selected = spp_choices[1])
       ),
     
-
     mainPanel(
       strong("Hover on a state to see which species it considers SGCN"),
       br(),
@@ -41,8 +40,13 @@ ui <- fluidPage(
 server <- function(input, output) {
 
     map_data_react <- reactive({
+      
+      if (length(input$spp)==0){
+        df
+      } else{
       df %>% select(states_2015, any_of(input$spp)) %>% 
         filter_at(input$spp, any_vars(.==1))
+      }
     })
     
     output$spp_map <- renderLeaflet({
