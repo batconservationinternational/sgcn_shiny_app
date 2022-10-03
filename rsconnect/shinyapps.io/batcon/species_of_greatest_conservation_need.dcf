@@ -1,0 +1,14 @@
+name: species_of_greatest_conservation_need
+title: species_of_greatest_conservation_need
+username:
+account: batcon
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7151474
+bundleId: 6349147
+url: https://batcon.shinyapps.io/species_of_greatest_conservation_need/
+when: 1664406362.01279
+lastSyncTime: 1664406362.0128
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: bat_species.csv|SGCN_bats.R|SGCN_data.csv
